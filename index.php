@@ -17,6 +17,7 @@ and open the template in the editor.
 
         <script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js" integrity="sha256-xNjb53/rY+WmG+4L6tTl9m6PpqknWZvRt0rO1SRnJzw=" crossorigin="anonymous"></script>
+        <script src="scripts/jquery.animate-shadow.js"></script>
         <script src="scripts/jquery.zoomooz.min.js"></script> 
 
     </head>
@@ -38,10 +39,9 @@ and open the template in the editor.
                 <div class="box-bluegray box box11 "></div>
                 <div class="box-lightgray box box12 "></div>
             </div>
-        </div>
-
-        <div id="footer">
-            COPYRIGHT © IHABKHAN.COM 2016+. ALL RIGHTS RESERVED
+            <div id="footer">
+                COPYRIGHT © IHABKHAN.COM 2016+. ALL RIGHTS RESERVED
+            </div>
         </div>
     </body>
     <script type="text/javascript">
@@ -64,25 +64,59 @@ and open the template in the editor.
             }
 
             for (var i = 0; i < randomNumbers.length; i++) {
-                $('.box' + randomNumbers[i]).delay(time).effect("highlight", {color: 'white'}, 1000)
+                $('.box' + randomNumbers[i]).delay(time).animate({boxShadow: '0 0 20px #000'}, 1000).animate({boxShadow: '0 0 20px #666'}, 1000);
+                ;
                 time += 100;
             }
 
-            $('.box').each(function () {
-                $(this).click(function () {
-                    $(this).zoomTo({
-                        targetsize: 1.0,
-                        root: $('#BoxContainer'),
-                        animationendcallback: EndZoom()
-                    });
+            selectedBox = "";
+
+            $(".box").each(function () {
+                $(this).zoomTarget({
+                    targetsize: 1.0,
+                    root: $("body"),
+                    closeclick: false
                 });
+
                 $(this).mouseenter(function () {
-                    $(this).effect("highlight", {color: 'white'}, 1000)
+                    $(this).animate({boxShadow: '0 0 20px #000'});
+                });
+
+                $(this).mouseleave(function () {
+                    $(this).animate({boxShadow: '0 0 20px #666'});
+                });
+
+                $(this).click(function () {
+                    EndZoom($(this));
                 });
             });
 
-            function EndZoom() {
-                
+            $("#PageContents").click(function () {
+                if (selectedBox !== "") {
+                    selectedBox.mouseenter(function () {
+                        $(this).animate({boxShadow: '0 0 20px #000'});
+                    });
+                    selectedBox.mouseleave(function () {
+                        $(this).animate({boxShadow: '0 0 20px #666'});
+                    });
+                    selectedBox.animate({boxShadow: '0 0 20px #666'});
+                    selectedBox = "";
+                }
+            });
+
+            function EndZoom(src) {
+                if (selectedBox !== "" && src !== selectedBox) {
+                    selectedBox.mouseenter(function () {
+                        $(this).animate({boxShadow: '0 0 20px #000'});
+                    });
+                    selectedBox.mouseleave(function () {
+                        $(this).animate({boxShadow: '0 0 20px #666'});
+                    });
+                    selectedBox.animate({boxShadow: '0 0 20px #666'});
+                }
+                src.unbind("mouseenter");
+                src.unbind("mouseleave");
+                selectedBox = src;
             }
         });
     </script>
