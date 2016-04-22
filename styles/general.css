@@ -1,0 +1,26 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+
+    Created on : 19/04/2016, 2:41:45 PM
+    Author     : Ihab Khan
+*/
+
+/* ALL TAGS RELATED STYLES GO HERE */
+html, body { width: 100%; height: 100%; margin: 0; padding: 0;}
+
+
+/* ALL ID RELATED STYLES GO HERE */
+#PageContents { padding: 10px; height: 800px; }
+#BoxContainer { width: 1690px; margin: 0 auto; height: 825px }
+#footer { height: 30px; text-align: right; padding-right: 130px; }
+
+/* ALL CLASS RELATED STYLES GO HERE */
+.box { font-family:Arial, sans-serif; font-size:14px; border-style:none; 
+         border-width:1px; overflow:hidden; word-break:normal; height: 250px; 
+         width: 400px; display: inline-block; margin-left: 15px; margin-top: 15px; }
+.box-lightgray { background-color: #c5c3c6; }
+.box-blue { background-color: #1985a1; }
+.box-darkgray { background-color: #46494c; }
+.box-bluegray { background-color: #4c5c68; }
