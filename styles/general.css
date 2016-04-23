@@ -7,19 +7,29 @@ and open the template in the editor.
     Author     : Ihab Khan
 */
 
-/* ALL TAGS RELATED STYLES GO HERE */
-html, body { width: 100%; height: 100%; margin: 0; padding: 0; background-color: #666666}
+@font-face {
+    font-family:'Orator Std';
+    src:url(../fonts/OratorStdMedium.ttf) format("truetype")
+}
 
+/* ALL TAGS RELATED STYLES GO HERE */
+html, body { width: 100%; height: 100%; margin: 0; padding: 0; background-color: #666666; font-family:Orator Std,Arial,sans-serif;}
+h1 { font-family:'Raleway',sans-serif; }
 
 /* ALL ID RELATED STYLES GO HERE */
-#PageContents { padding: 10px; height: 800px; }
-#BoxContainer { width: 1690px; margin: 0 auto; height: 825px; }
-#footer { height: 30px; text-align: right; padding-right: 130px; }
+#PageContents { padding: 10px; height: 700px; margin-top: 100px; }
+#BoxContainer { width: 1705px; margin: 0 auto; height: 670px; }
+#mydetails { height: 130px; width: 100%; margin-top: 7%; padding-left: 20px; font-family:Orator Std,Arial,sans-serif;}
+#mypicture { padding: 5px; height: 120px; width: 120px; float: left; }
+#myname { height: 40px; width: 170px; font-size: 1.6em; font-weight: bold; float: left; }
+#welcomemessage { padding: 10px; font-size: 2.2em; margin-top: 20px; margin-left: 10px; font-family:Orator Std,Arial,sans-serif; }
+#footer { height: 30px; width: 1705px; margin: 0 auto; text-align: right; font-family:Orator Std,Arial,sans-serif; padding-right: 30px;}
 
 /* ALL CLASS RELATED STYLES GO HERE */
 .box { font-family:Arial, sans-serif; font-size:14px; border-style:none; 
-         border-width:1px; overflow:hidden; word-break:normal; height: 250px; 
-         width: 400px; display: inline-block; margin-left: 15px; margin-top: 15px; }
+       border-width:1px; overflow:hidden; word-break:normal; height: 200px; 
+       width: 400px; display: inline-block; margin-left: 15px; margin-top: 15px;
+       border-radius: 10px; }
 .box-lightgray { background-color: #c5c3c6; }
 .box-blue { background-color: #1985a1; }
 .box-darkgray { background-color: #46494c; }
